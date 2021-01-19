@@ -7,6 +7,7 @@ function run() {
 	let inParsed2 = JSON.parse(input2);
 	let notExist = true;
 	let out = [];
+	let temp = 0;
 	for (let x = 0; x < inParsed1.length; x++) {
 		out.push(inParsed1[x]);
 	}
@@ -22,5 +23,21 @@ function run() {
 		}
 	}
 
-	output.innerText = out;
+	output.innerText = arrSorter(out);
+}
+
+function arrSorter(arr) {
+	let temp = 0;
+	let out = [];
+	for (let x = 0; x < arr.length; x++) {
+		for (let y = x; y < arr.length; y++) {
+			if (arr[x] > arr[y]) {
+				temp = arr[x];
+				arr[x] = arr[y];
+				arr[y] = temp;
+			}
+		}
+		out.push(arr[x]);
+	}
+	return out;
 }

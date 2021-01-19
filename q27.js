@@ -1,16 +1,14 @@
 function run() {
 	const input = document.getElementById("input").value;
 	const output = document.getElementById("output");
+	let out = [];
 	let inParsed = textToArr(input);
-	console.log(inParsed);
 	for (let i = 0; i < inParsed.length; i++) {
-		if (isNaN(inParsed[i]) || inParsed[i] === 0 || inParsed[i] === "") {
-			inParsed.splice(i, 1);
-			console.log(inParsed);
+		if (!isNaN(inParsed[i]) && inParsed[i] !== 0) {
+			out.push(inParsed[i]);
 		}
 	}
-
-	output.innerText = inParsed;
+	output.innerText = out;
 }
 
 function textToArr(input) {

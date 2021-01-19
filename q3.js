@@ -26,8 +26,8 @@ function textToArr(input) {
 	if (input[0] !== "[" || input[input.length - 1] !== "]") {
 		out = "NaA";
 	} else {
-		for (let i = 1; i < input.length - 2; i++) {
-			if (input[i] === ",") {
+		for (let i = 1; i < input.length; i++) {
+			if (input[i] === "," || input[i] === "]") {
 				out[index] = temp;
 				index++;
 				temp = "";
